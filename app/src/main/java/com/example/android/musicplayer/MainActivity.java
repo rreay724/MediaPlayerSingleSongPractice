@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import javax.security.auth.login.LoginException;
 
@@ -30,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // .start method will start the song. The if else statement will display logging
                 mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mediaPlayer) {
+                        Toast.makeText(MainActivity.this, "Song is finished!", Toast.LENGTH_SHORT);
+                    }
+                });
                 if (mediaPlayer.isPlaying()) {
                     Log.d(TAG, "onClick: Media is playing");
                 } else {
@@ -37,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
+
         });
 
         Button pauseButton = findViewById(R.id.pauseButton);
@@ -68,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "onClick: Track did not restart");
             }
         });
-    }
 
+
+    }
 }
+
