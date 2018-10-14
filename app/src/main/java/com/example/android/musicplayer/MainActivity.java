@@ -1,6 +1,7 @@
 package com.example.android.musicplayer;
 
 import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +13,7 @@ import javax.security.auth.login.LoginException;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    
     public static final String TAG = "Media Player";
 
 
@@ -42,9 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Log.e(TAG, "onClick: MediaPlayer did not play");
                 }
-
             }
-
         });
 
         Button pauseButton = findViewById(R.id.pauseButton);
@@ -61,9 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     mediaPlayer.start();
                     Log.e(TAG, "onClick: Mediaplayer did not pause");
-
                 }
-
             }
         });
 
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
+
 }
 
